@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>AI Auto-Edit Reel Pipeline — SkynetLabs Blueprint</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --ink: #0c0f14;
+        --paper: #0c0f14;
+        --gold: #e8b84b;
+        --gold2: #f6d27a;
+        --txt: #e9edf2;
+        --mut: #9aa6b2;
+        --line: rgba(232, 184, 75, 0.22);
+        --card: #141923;
+      }
+      body {
+        font-family:
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        color: var(--txt);
+        background: var(--paper);
+      }
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 22mm 18mm;
+        position: relative;
+      }
+      .kicker {
+        color: var(--gold);
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      h1 {
+        font-size: 33px;
+        line-height: 1.08;
+        margin: 10px 0 6px;
+        letter-spacing: -0.5px;
+      }
+      h1 b {
+        color: var(--gold);
+      }
+      .sub {
+        color: var(--mut);
+        font-size: 13px;
+        max-width: 150mm;
+        line-height: 1.5;
+      }
+      .rule {
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold), transparent);
+        margin: 16px 0 20px;
+      }
+      h2 {
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin: 22px 0 12px;
+      }
+      .step {
+        display: flex;
+        gap: 14px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-bottom: 10px;
+      }
+      .num {
+        flex: 0 0 34px;
+        height: 34px;
+        width: 34px;
+        border-radius: 9px;
+        background: linear-gradient(135deg, var(--gold), var(--gold2));
+        color: #1a1206;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+      }
+      .step h3 {
+        font-size: 15px;
+        margin: 2px 0 4px;
+      }
+      .step p {
+        font-size: 12.5px;
+        color: var(--mut);
+        line-height: 1.5;
+      }
+      .step code {
+        background: rgba(232, 184, 75, 0.1);
+        color: var(--gold2);
+        padding: 1px 6px;
+        border-radius: 5px;
+        font-size: 11.5px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .tool {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 11px 13px;
+      }
+      .tool b {
+        color: var(--gold2);
+        font-size: 13px;
+      }
+      .tool span {
+        display: block;
+        color: var(--mut);
+        font-size: 11.5px;
+        margin-top: 3px;
+      }
+      .cta {
+        margin-top: 24px;
+        background: linear-gradient(135deg, #1a1206, #241a08);
+        border: 1px solid var(--gold);
+        border-radius: 14px;
+        padding: 20px 22px;
+      }
+      .cta h3 {
+        font-size: 18px;
+        color: var(--gold2);
+        margin-bottom: 6px;
+      }
+      .cta p {
+        font-size: 13px;
+        color: var(--txt);
+        line-height: 1.5;
+      }
+      .cta .url {
+        color: var(--gold);
+        font-weight: 700;
+        font-size: 14px;
+        margin-top: 10px;
+        display: block;
+      }
+      .foot {
+        margin-top: 18px;
+        border-top: 1px solid var(--line);
+        padding-top: 12px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: var(--mut);
+      }
+      .badge {
+        display: inline-block;
+        border: 1px solid var(--gold);
+        color: var(--gold);
+        border-radius: 30px;
+        padding: 3px 12px;
+        font-size: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="badge">SkynetLabs · Free Blueprint</div>
+      <div class="kicker">The reel that edited itself</div>
+      <h1>AI Auto-Edit<br /><b>Reel Pipeline</b></h1>
+      <p class="sub">
+        You hit record. The machine does the rest — cut, caption-sync, hook
+        card, export. Zero human editor. This is the exact architecture behind
+        the reel you just watched. Steal it.
+      </p>
+      <div class="rule"></div>
+
+      <h2>The 5-stage pipeline</h2>
+
+      <div class="step">
+        <div class="num">1</div>
+        <div>
+          <h3>Capture — talk, don't edit</h3>
+          <p>
+            Record one continuous take on a phone or DJI Osmo Pocket. No marks,
+            no re-shoots. The raw clip is the only human input. Vertical
+            <code>1080×1920</code> for reels, <code>1080×1350</code> for feed.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">2</div>
+        <div>
+          <h3>Transcribe — word-level timestamps</h3>
+          <p>
+            Run <code>faster-whisper</code> locally (free, no API). It returns
+            every word with a start/end timestamp. This is the spine — captions
+            and cuts both snap to it.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <h3>Auto-cut — kill the dead air</h3>
+          <p>
+            A script reads the transcript gaps + silence detection (<code
+              >ffmpeg silencedetect</code
+            >) and trims pauses, filler, and false starts. A 47s ramble becomes
+            a tight 30s cut without anyone touching a timeline.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">4</div>
+        <div>
+          <h3>Caption + hook — burned in, beat-snapped</h3>
+          <p>
+            Captions are drawn from the Whisper timestamps so they land on the
+            exact word. The on-screen hook card (<code
+              >"THIS REEL EDITED ITSELF"</code
+            >) and brand strap are composited in one <code>ffmpeg</code> filter
+            pass.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">5</div>
+        <div>
+          <h3>Export — NVENC, one pass</h3>
+          <p>
+            Single render via <code>ffmpeg</code> NVENC (GPU) with libx264
+            fallback. Out comes a finished, platform-ready vertical. From record
+            to publish-ready in minutes, not a 3am editing session.
+          </p>
+        </div>
+      </div>
+
+      <h2>The stack (all of it)</h2>
+      <div class="grid">
+        <div class="tool">
+          <b>faster-whisper</b
+          ><span>Local transcription, word timestamps. $0.</span>
+        </div>
+        <div class="tool">
+          <b>ffmpeg</b
+          ><span>Cut, silencedetect, caption burn, NVENC export.</span>
+        </div>
+        <div class="tool">
+          <b>Claude Code</b
+          ><span>Orchestrates the steps + writes per-platform captions.</span>
+        </div>
+        <div class="tool">
+          <b>One script</b><span>Glues it: record in → finished reel out.</span>
+        </div>
+      </div>
+
+      <div class="cta">
+        <h3>Don't want to build it? We'll wire it into your brand.</h3>
+        <p>
+          SkynetLabs builds AI content pipelines that produce on autopilot — so
+          your team stops editing by hand and starts shipping daily. Same
+          system, tuned to your voice and platforms.
+        </p>
+        <span class="url">→ skynetlabs.io · DM "SKILL" to start</span>
+      </div>
+
+      <div class="foot">
+        <span>SkynetLabs — AI automation for content, marketing & ops</span>
+        <span>© 2026 · Free to share</span>
+      </div>
+    </div>
+  </body>
+</html>
